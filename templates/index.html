@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+   <meta charset="UTF-8">
+   <title>Bankruptcy Prediction</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+   <div id="wrap">
+      <h1>Bankruptcy Prediction</h1>
+      <h4> All values are between 0 and 1 <h4>
+            <section id="furn" class="frame2">
+
+               <div class="login">
+
+                  <form action="{{ url_for('predict')}}" method="post">
+                     <table class="entryForm">
+
+                        <tr>
+                           <th>ROA(C) before interest</th>
+                           <td><input type="text" name="ROA(C) before interest and depreciation before interest"
+                                 placeholder="ROA(C) before interest" required="required" />
+                        </tr>
+
+                        <tr>
+                           <th>ROA(A) before interest</th>
+                           <td><input type="text" name="ROA(A) before interest and % after tax"
+                                 placeholder="ROA(A) before interest" required="required" />
+                        </tr>
+
+                        <tr>
+                           <th>ROA(B) before interest</th>
+                           <td><input type="text" name="ROA(B) before interest and depreciation after tax"
+                                 placeholder="ROA(B) before interest" required="required" />
+                        </tr>
+
+                        <tr>
+                           <th>Pre-tax net Interest Rate</th>
+                           <td><input type="text" name="Pre-tax net Interest Rate"
+                                 placeholder="Pre-tax net interest rate" required="required" />
+                        </tr>
+
+                        <tr>
+                           <th>After-tax net Interest Rate</th>
+                           <td><input type="text" name="After-tax net Interest Rate"
+                                 placeholder="After-tax net Interest Rate" required="required" />
+                        </tr>
+
+                        <tr>
+                           <th>Non-industry income and expenditure/revenue</th>
+                           <td><input type="text" name="Non-industry income and expenditure/revenue"
+                                 placeholder="Non-industry income and expenditure/revenue" required="required" />
+                        </tr>
+                        <tr>
+                           <th>Continuous interest rate (after tax)</th>
+                           <td><input type="text" name="Continuous interest rate (after tax)"
+                                 placeholder="Continuous interest rate (after tax)" required="required" />
+                        </tr>
+                        <tr>
+                           <th>Interest-bearing debt interest rate</th>
+                           <td><input type="text" name="Interest-bearing debt interest rate"
+                                 placeholder="Interest-bearing debt interest rate" required="required" />
+                        </tr>
+
+                        <tr>
+                           <th>Net Value Per Share (B)</th>
+                           <td><input type="text" name="Net Value Per Share (B)" placeholder="Net Value Per Share (B)"
+                                 required="required" />
+                        </tr>
+                        <tr>
+                           <th>Net Value Per Share (A)</th>
+                           <td><input type="text" name="Net Value Per Share (A)" placeholder="Net Value Per Share (A)"
+                                 required="required" />
+                        </tr>
+                     </table>
+                     <div class="btns">
+                        <button type="reset" class="btn btn-clear">Reset</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+                     </div>
+                  </form>
+
+               </div>
+
+
+            </section>
+
+
+            <br>
+            <br>
+            {{prediction_text}}
+   </div>
+
+</body>
+
+</html>
